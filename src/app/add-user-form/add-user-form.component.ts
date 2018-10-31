@@ -24,7 +24,7 @@ export class AddUserFormComponent implements OnInit {
     this.router.navigate(['/users-list']);
 }
 
-goback() {
+goBack() {
   this.router.navigate(['/users-list']);
 }
 }
