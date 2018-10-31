@@ -1,3 +1,11 @@
-<p>
-  users-list works!
-</p>
+<h2>Liste des utilisateurs</h2>
+<div class="row">
+    <div *ngFor="let user of users">
+        <div class="col-6" id="user">
+            <h4>{{user.name}}</h4>
+            <p>Année de naissance : {{user.birthYear}}</p>
+        </div>
+    </div>
+</div>
+<button class="btn btn-success" (click)="goBack()">Go back</button>
+<a class="btn btn-primary" routerLink="/add-user"> Ajouter un utilisateur</a>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  nbUsers: number;
+  nbTasks: number;
+
+  constructor(private userService: UserService, private taskService: TasksService) { }
 
   ngOnInit() {
+
+    this.nbUsers = this.userService.getSize();
+    this.nbTasks = this.taskService.getSize();
   }
 
 }

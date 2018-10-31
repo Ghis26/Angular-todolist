@@ -1,1 +1,8 @@
-<app-users-list></app-users-list>
+<div class="row">
+    <div class="col-4" id="resume">
+        <a routerLink="/users-list" class="dashBoardCard">{{ this.nbUsers }} Utilisateurs inscrits</a>
+    </div>
+    <div class="col-4" id="resume">
+        <a routerLink="/tasks-list" class="dashBoardCard">{{ this.nbTasks }} Tâches créées</a>
+    </div>
+</div>

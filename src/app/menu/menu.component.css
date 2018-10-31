@@ -1,0 +1,9 @@
+.menu {
+  text-align : center;  
+  background-color: blanchedalmond;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 4px 4px 4px 4px grey;
+    height: 350px;
+    font-weight: bold;
+  }

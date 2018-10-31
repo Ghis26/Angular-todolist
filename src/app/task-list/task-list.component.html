@@ -1,0 +1,12 @@
+<h2>Liste des tâches</h2>
+<div class="row">
+    <div *ngFor="let task of tasks">
+        <div class="col-6" id="task">
+            <h4>{{task.title}}</h4>
+            <p>{{task.description}}</p>
+        </div>
+    </div>
+</div>
+<button class="btn btn-success" (click)="goBack()">Go back</button>
+<a class="btn btn-primary" routerLink="/add-task"> Ajouter une tâche</a>  
+
