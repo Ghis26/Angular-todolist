@@ -1,8 +1,17 @@
 <div class="row">
+        <h2 class="col-12 border-dark border-bottom m-1 p-2 text-left ">Tableau de bord</h2>
+    </div>
+<div class="row">
     <div class="col-4" id="resume">
-        <a routerLink="/users-list" class="dashBoardCard">{{ this.nbUsers }} Utilisateurs inscrits</a>
+        <a routerLink="/users-list" class="dashBoardCard">{{ this.nbUsers }} Utilisateur(s) inscrit(s)</a>
     </div>
     <div class="col-4" id="resume">
-        <a routerLink="/tasks-list" class="dashBoardCard">{{ this.nbTasks }} Tâches créées</a>
+        <a routerLink="/tasks-list" class="dashBoardCard">{{ this.nbTasks }} Tâche(s) créée(s)</a>
     </div>
+    <div class="col-4" id="resumeFinished">
+        <a routerLink="" class="dashBoardCard">{{this.finishTasks.length}} tâche(s) terminée(s)</a>
+    </div>
+    <div class="col-4" id="resumeInProgress">
+            <a routerLink="" class="dashBoardCard">{{this.inProgressTasks.length}} tâche(s) en cours</a>
+        </div>
 </div>

@@ -10,15 +10,21 @@ export class TasksService {
   tasks: Task[] = [
     {
       title: 'Tache 1',
-      description: 'Ceci est la 1ère tache'
+      description: 'Ceci est la 1ère tache',
+      status: 'En cours',
+      affectation: 'Ghis'
     },
     {
       title: 'Tache 2',
-      description: 'Idem'
+      description: 'Idem',
+      status: 'Terminée',
+      affectation: 'Tony'
     },
     {
       title: 'Test Taches',
-      description: '19YY'
+      description: '19YY',
+      status: 'Terminée',
+      affectation: 'Nico'
     }
     ];
   constructor() { }
@@ -33,4 +39,5 @@ export class TasksService {
   addTask(task: Task) {
     this.tasks.push(task);
     this.getTasks();
+}
 }

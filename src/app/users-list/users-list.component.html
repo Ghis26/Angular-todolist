@@ -1,11 +1,18 @@
-<h2>Liste des utilisateurs</h2>
 <div class="row">
-    <div *ngFor="let user of users">
-        <div class="col-6" id="user">
-            <h4>{{user.name}}</h4>
-            <p>Année de naissance : {{user.birthYear}}</p>
+    <h2 class="col-12 border-dark border-bottom m-1 p-2 text-left ">Liste des utilisateurs</h2>
+</div>
+
+<div class="row">
+    <div *ngFor="let user of users" class="pb-5">
+        <div class="col-8 offset-5 m-5 " id="user">
+            <h4 class="m-4">{{user.name}}</h4>
+            <p>Date de naissance : {{user.birthDate }}</p>
+            <p> Nombre de tâches affectées : {{user.nbTasks}} </p>
         </div>
     </div>
 </div>
-<button class="btn btn-success" (click)="goBack()">Go back</button>
-<a class="btn btn-primary" routerLink="/add-user"> Ajouter un utilisateur</a>
+<div class="col-12 text-left">
+        <button class="btn btn-secondary" (click)="goBack()">Retour</button>
+        <a class="btn btn-primary" routerLink="/add-user"> Ajouter un utilisateur</a>
+</div>
+

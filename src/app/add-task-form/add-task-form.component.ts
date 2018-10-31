@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../task.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { TasksService } from '../tasks.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { User } from '../user.model';
 
 @Component({
   selector: 'app-add-task-form',
@@ -11,27 +12,40 @@ import { Router } from '@angular/router';
 })
 export class AddTaskFormComponent implements OnInit {
 
-taskForm: FormGroup;
+data: any = {};
 
-constructor(private formBuilder: FormBuilder, private taskService: TasksService, private router: Router) {
+tasks: Task[];
+
+users: User[];
+
+constructor(private taskService: TasksService,
+   private router: Router,
+   private userService: UserService) {
 
 }
 
 ngOnInit() {
-  this.initForm();
+this.getUsers();
 }
 
-initForm() {
-  this.taskForm = this.formBuilder.group({
-    title: '',
-    description: ''
-  });
+getUsers(): void {
+  this.userService.getUsers().subscribe(users => this.users = users);
 }
+
+  getTasks(): void {
+    this.taskService.getTasks().subscribe(tasks => this.tasks = tasks);
+  }
 
   onSubmit(): void {
-    const formValue = this.taskForm.value;
-     const newTask = new Task(formValue['title'], formValue['description']);
-    this.taskService.addTask(newTask);
-    this.router.navigate(['/users-list']);
+    const task = new Task(
+      this.data.title, this.data.description, 'En cours', this.data.affectation
+    );
+    this.taskService.addTask(task);
+    console.log(task);
+    this.router.navigate(['/tasks-list']);
+  }
+
+  goBack(): void {
+    this.router.navigate(['/tasks-list']);
   }
 }

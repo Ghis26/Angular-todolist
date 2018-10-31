@@ -1,12 +1,17 @@
-<h2>Liste des tâches</h2>
 <div class="row">
-    <div *ngFor="let task of tasks">
-        <div class="col-6" id="task">
+        <h2 class="col-12 border-dark border-bottom m-1 p-2 text-left ">Liste des tâches</h2>
+    </div>
+<div class="row mt-3">
+    <div *ngFor="let task of tasks" class="mt-4">
+        <div class="col-8 offset-2" id="task" [ngClass]="{finished: task.status == 'Terminée', 'inProgress': task.status == 'En cours'}">
             <h4>{{task.title}}</h4>
-            <p>{{task.description}}</p>
+            <p>Contenu : {{task.description}}</p>
+            <p> Statut : {{task.status}}</p>
+            <p>Affectée à : {{task.affectation}}</p>
         </div>
     </div>
 </div>
-<button class="btn btn-success" (click)="goBack()">Go back</button>
-<a class="btn btn-primary" routerLink="/add-task"> Ajouter une tâche</a>  
-
+<div class="col-12 text-left mt-4">
+    <button class="btn btn-secondary" (click)="goBack()">Retour</button>
+    <a class="btn btn-primary" routerLink="/add-task"> Ajouter une tâche</a> 
+</div>

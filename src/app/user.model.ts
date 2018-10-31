@@ -1,6 +1,7 @@
 export class User {
 constructor(
   public name: string,
-  public birthYear: string,
+  public birthDate: string,
+  public nbTasks: number
 ) {}
 }

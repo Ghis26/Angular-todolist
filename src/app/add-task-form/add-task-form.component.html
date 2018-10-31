@@ -1,12 +1,23 @@
-<h2>Ajout d'une tâche</h2>
-<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-<div class="form-group">
-  <label for="title"> Titre</label>
-<input id="title" type="text" class="form-control" #title="ngForm" formControlName="title">
+<div class="row">
+    <h2 class="col-12 border-dark border-bottom m-1 p-2 text-left ">Ajout d'une tâche</h2>
 </div>
-<div class="form-group">
+<div class="container">
+<form (submit)="onSubmit()">
+<div class="form-group col-8">
+  <label for="title"> Titre</label>
+<input id="title" type="text" class="form-control" name="title" [(ngModel)]="data.title" placeholder="Titre de la tâche">
+</div>
+<div class="form-group col-8">
     <label for="description"> Description</label>
-  <input id="description" type="text" class="form-control" #descriptionr="ngForm" formControlName="description">
+  <input id="description" type="text" class="form-control" name="description" [(ngModel)]="data.description" placeholder="Description de la tâche">
   </div>
-  <button type="submit" class="btn btn-success" [disabled]="!taskForm.form.valid"> Submit </button>
+  <div class="form-group col-8">
+    <label for="affectation">Affectation de la tâche </label>
+    <select name="affectation" [(ngModel)]="data.affectation" class="btn btn-outline-secondary">
+      <option [value]="user.name" *ngFor="let user of users">{{user.name}}</option>
+    </select>
+  </div>
+  <button class="btn btn-secondary" (click)="goBack()">Retour</button>
+  <button type="submit" class="btn btn-success"> Submit </button>
 </form>
+</div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from './user.model';
 import { Observable, of } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,21 +11,29 @@ export class UserService {
 users: User[] = [
   {
     name: 'Ghis',
-    birthYear: '1987'
+    birthDate: '06-11-1987',
+    nbTasks: 0
   },
   {
     name: 'Tony',
-    birthYear: '19XX'
+    birthDate: '25-04-1990',
+    nbTasks: 0
   },
   {
     name: 'Max',
-    birthYear: '19YY'
+    birthDate: '01-08-1996',
+    nbTasks: 0
   },
   {
     name: 'Nico',
-    birthYear: '19ZZ'
+    birthDate: '11-07-1994',
+    nbTasks: 0
   }
 ];
+
+constructor() {
+
+}
 
 getUsers(): Observable<User[]> {
 return of (this.users);
@@ -38,4 +47,5 @@ addUser(user: User) {
 this.users.push(user);
 this.getUsers();
 }
+
 }
